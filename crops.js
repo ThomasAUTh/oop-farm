@@ -2,11 +2,19 @@ class Crop {
     constructor(acres) {
       this.acres = acres
     }
+    getYieldInEuros() {
+        return this.getYieldInKg() * this.price
+    }
+    getCosts() {
+        return this.acres * this.costs
+    }
 }
 
-class Wheat {
+class Wheat extends Crop {
     constructor(acres) {
-        this.acres = acres
+        super(acres)
+        this.price = 1.5
+        this.costs = 340
     }
   
     getYieldInKg() {
@@ -14,9 +22,11 @@ class Wheat {
     }
 }
 
-class Sugarcane {
+class Sugarcane extends Crop {
     constructor(acres) {
-        this.acres = acres
+        super(acres)
+        this.price = 2.0
+        this.costs = 166
     }
 
     getYieldInKg() {
